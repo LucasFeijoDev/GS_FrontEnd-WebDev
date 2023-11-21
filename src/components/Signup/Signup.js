@@ -57,13 +57,14 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [emailConf, setEmailConf] = useState("");
   const [senha, setSenha] = useState("");
+  const [nome, setNome] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const { signup } = useAuth();
 
   const handleSignup = () => {
-    if (!email | !emailConf | !senha) {
+    if (!email | !emailConf | !senha | !nome) {
       setError("Preencha todos os campos");
       return;
     } else if (email !== emailConf) {
@@ -83,39 +84,45 @@ const Signup = () => {
   };
 
   return (
-  <div className="signuppage">  
-    <Container>
-      <Content>
-      <Label>CADASTRO</Label>
-        <Input
-          type="email"
-          placeholder="Digite seu e-mail"
-          value={email}
-          onChange={(e) => [setEmail(e.target.value), setError("")]}
-        />
-        <Input
-          type="email"
-          placeholder="Confirme seu e-mail"
-          value={emailConf}
-          onChange={(e) => [setEmailConf(e.target.value), setError("")]}
-        />
-        <Input
-          type="password"
-          placeholder="Digite sua senha"
-          value={senha}
-          onChange={(e) => [setSenha(e.target.value), setError("")]}
-        />
-        <LabelError>{error}</LabelError>
-        <Button onClick={handleSignup} >Registrar</Button>
-        <LabelSignin>
-          Já tem uma conta?
-          <Strong>
-            <Link to="/sign-in">&nbsp;Entre</Link>
-          </Strong>
-        </LabelSignin>
-      </Content>
-    </Container>
-  </div>  
+    <div className="signuppage">
+      <Container>
+        <Content>
+          <Label>CADASTRO</Label>
+          <Input
+            type="text"
+            placeholder="Digite seu nome"
+            value={nome}
+            onChange={(e) => [setNome(e.target.value), setError("")]}
+          />
+          <Input
+            type="email"
+            placeholder="Digite seu e-mail"
+            value={email}
+            onChange={(e) => [setEmail(e.target.value), setError("")]}
+          />
+          <Input
+            type="email"
+            placeholder="Confirme seu e-mail"
+            value={emailConf}
+            onChange={(e) => [setEmailConf(e.target.value), setError("")]}
+          />
+          <Input
+            type="password"
+            placeholder="Digite sua senha"
+            value={senha}
+            onChange={(e) => [setSenha(e.target.value), setError("")]}
+          />
+          <LabelError>{error}</LabelError>
+          <Button onClick={handleSignup} >Registrar</Button>
+          <LabelSignin>
+            Já tem uma conta?
+            <Strong>
+              <Link to="/sign-in">&nbsp;Entre</Link>
+            </Strong>
+          </LabelSignin>
+        </Content>
+      </Container>
+    </div>
   );
 };
 

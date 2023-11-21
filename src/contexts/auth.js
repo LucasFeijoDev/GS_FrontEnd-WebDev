@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import usersData from "../data/users.json"; // Importe os dados de usuário do arquivo JSON.
+import usersData from "../data/dados.json"; // Importe os dados de usuário do arquivo JSON.
 
 export const AuthContext = createContext({});
 
